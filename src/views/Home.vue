@@ -1,69 +1,183 @@
 <template>
-    <my-page title="首页">
-        <h1>APlayer</h1>
-        <div id="player1" class="aplayer"></div>
+    <my-page title="音乐" :page="page">
+        <app-list :data="groups" />
     </my-page>
 </template>
 
 <script>
-    /* eslint-disable */
-    // const MusicPlayer = require('../MusicPlayer')
-    import MusicPlayer from '../MusicPlayer'
-
     export default {
         data () {
             return {
+                groups: [
+                    {
+                        // name: '文档编辑',
+                        apps: [
+                            {
+                                name: '音乐播放器',
+                                desc: '',
+                                icon: '/static/img/music_player.svg',
+                                to: '/player'
+                            },
+                            {
+                                name: '歌词编辑器',
+                                desc: '',
+                                icon: '/static/img/music.svg',
+                                to: 'xxx',
+                                href: 'https://demo2.yunser.com/lrc/',
+                                target: '_blank'
+                            },
+                            {
+                                name: '键盘钢琴',
+                                desc: '',
+                                icon: '/static/img/music_piano.svg',
+                                to: 'xxx',
+                                href: 'https://piano.yunser.com/',
+                                target: '_blank'
+                            },
+                            {
+                                name: '吉他调压器',
+                                desc: '',
+                                icon: '/static/img/music_guitar.svg',
+                                to: 'xxx',
+                                href: 'https://demo2.yunser.com/guitar/',
+                                target: '_blank'
+                            },
+                            {
+                                name: '音乐节拍器',
+                                desc: '',
+                                icon: '/static/img/music_bit.svg',
+                                to: 'xxx',
+                                href: 'https://demo2.yunser.com/music_time/',
+                                target: '_blank'
+                            },
+                            {
+                                name: '白噪音',
+                                desc: '',
+                                icon: '/static/img/white_noise.svg',
+                                to: 'xxx',
+                                href: 'https://demo2.yunser.com/white_noise/',
+                                target: '_blank'
+                            }
+                        ]
+                    }
+                ],
                 page: {
                     menu: [
                         {
                             type: 'icon',
-                            icon: 'help',
-                            to: '/help'
+                            icon: 'search',
+                            href: 'https://search.yunser.com?utm_source=music',
+                            target: '_blank',
+                            title: '搜索'
+                        },
+                        {
+                            type: 'icon',
+                            icon: 'apps',
+                            href: 'https://app.yunser.com?utm_source=music',
+                            target: '_blank',
+                            title: '应用'
                         }
                     ]
                 }
             }
         },
+        computed: {
+        },
         mounted() {
-            let music = [
-                {
-                    title: '小幸运',
-                    author: '田馥甄',
-                    url: '/static/music/1.mp3',
-                    pic: 'http://devtest.qiniudn.com/回レ！雪月花.jpg',
-                    lrc: "/static/music/1.lrc"
-                },
-                {
-                    title: 'あっちゅ～ま青春!',
-                    author: '七森中☆ごらく部',
-                    url: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.mp3',
-                    pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
-                    lrc: "あっちゅ～ま青春!.lrc"
-                },
-                {
-                    title: 'secret base~君がくれたもの~',
-                    author: '茅野愛衣',
-                    url: 'http://devtest.qiniudn.com/secret base~.mp3',
-                    pic: 'http://devtest.qiniudn.com/secret base~.jpg',
-                    lrc: "secret base~君がくれたもの~.lrc"
-                }
-            ];
-
-
-            let player = new MusicPlayer({
-                element: document.getElementById('player1'),
-                narrow: false,
-                autoplay: false,
-                showlrc: 3,
-                mutex: true,
-                theme: '#e6d0b2',
-                preload: 'metadata',
-                mode: 'circulation',
-                music: music
-            });
+        },
+        methods: {
+            init() {
+            },
+            fileChange(e) {
+            },
+            sizeStr: function (size) {
+            }
         }
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../scss/var';
+
+.tool-list {
+    max-width: 840px;
+    margin: 0 auto;
+    @include clearfix;
+    .list-item {
+        position: relative;
+        float: left;
+        width: 260px;
+        height: 96px;
+        padding: 8px;
+        margin: 2px 16px 16px 2px;
+        background-color: #fff;
+        //border: 1px solid #ccc;
+        &:hover {
+            background-color: #f9f9f9;
+            // box-shadow: 0 3px 10px rgba(0,0,0,.156863), 0 3px 10px rgba(0,0,0,.227451);
+            //border-color: #09c;
+            .icon {
+                display: block;
+            }
+        }
+        &.active {
+            border: 1px solid #f00;
+        }
+    }
+    a {
+        display: block;
+        height: 100%;
+        color: #666;
+        cursor: pointer;
+    }
+    .img {
+        float: left;
+        width: 72px;
+        height: 72px;
+        margin-right: 16px;
+        background-color: #fff;
+        border: 1px solid #e9e9e9;
+        border-radius: 8px;
+    }
+    .info {
+        float: left;
+    }
+    .text {
+        font-size: 18px;
+        color: #000;
+    }
+    .header {
+        overflow: hidden;
+    }
+    .desc {
+        max-width: 150px;
+        margin-top: 8px;
+    }
+    .icon-heart {
+        display: none;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        &:hover {
+            color: #f00;
+        }
+    }
+    .icon-close {
+        display: none;
+        position: absolute;
+        top: 32px;
+        right: 8px;
+        &:hover {
+            color: #f00;
+        }
+    }
+}
+@media all and (max-width: 400px){
+    .tool-list {
+        .list-item {
+            width: 100%;
+            margin-right: 0;
+        }
+    }
+}
 </style>
