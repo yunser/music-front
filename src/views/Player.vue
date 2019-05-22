@@ -1,7 +1,9 @@
 <template>
     <my-page title="首页">
-        <h1>APlayer</h1>
-        <div id="player1" class="aplayer"></div>
+        <div class="common-container container">
+            <h1>APlayer</h1>
+            <div id="player1" class="aplayer"></div>
+        </div>
     </my-page>
 </template>
 
