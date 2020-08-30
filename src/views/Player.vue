@@ -1,5 +1,5 @@
 <template>
-    <my-page title="首页">
+    <my-page title="播放器">
         <div class="common-container container">
             <h1>APlayer</h1>
             <div id="player1" class="aplayer"></div>
@@ -27,6 +27,7 @@
             }
         },
         mounted() {
+            // https://www.80wp.com/file/106304.html
             let music = [
                 {
                     title: '小幸运',
@@ -36,18 +37,18 @@
                     lrc: "/static/music/1.lrc"
                 },
                 {
-                    title: 'あっちゅ～ま青春!',
-                    author: '七森中☆ごらく部',
-                    url: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.mp3',
+                    title: '少年',
+                    author: '梦然',
+                    url: '/static/music/2.mp3',
                     pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
-                    lrc: "あっちゅ～ま青春!.lrc"
+                    lrc: "/static/music/2.lrc"
                 },
                 {
-                    title: 'secret base~君がくれたもの~',
-                    author: '茅野愛衣',
-                    url: 'http://devtest.qiniudn.com/secret base~.mp3',
+                    title: '童话镇',
+                    author: '陈一发儿',
+                    url: '/static/music/3.mp3',
                     pic: 'http://devtest.qiniudn.com/secret base~.jpg',
-                    lrc: "secret base~君がくれたもの~.lrc"
+                    lrc: "/static/music/3.lrc"
                 }
             ];
 

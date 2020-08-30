@@ -12,7 +12,28 @@
             return {
                 groups: [
                     {
-                        // name: '文档编辑',
+                        name: '听',
+                        apps: [
+                            {
+                                name: '聆听',
+                                desc: '',
+                                icon: '/static/img/music.svg',
+                                to: 'xxx',
+                                href: 'https://player.yunser.com/',
+                                target: '_blank'
+                            },
+                            {
+                                name: '白噪音',
+                                desc: '',
+                                icon: '/static/img/white_noise.svg',
+                                to: 'xxx',
+                                href: 'https://demo2.yunser.com/white_noise/',
+                                target: '_blank'
+                            }
+                        ]
+                    },
+                    {
+                        name: '工具',
                         apps: [
                             {
                                 name: '音乐播放器',
@@ -52,14 +73,6 @@
                                 href: 'https://demo2.yunser.com/music_time/',
                                 target: '_blank'
                             },
-                            {
-                                name: '白噪音',
-                                desc: '',
-                                icon: '/static/img/white_noise.svg',
-                                to: 'xxx',
-                                href: 'https://demo2.yunser.com/white_noise/',
-                                target: '_blank'
-                            }
                         ]
                     }
                 ],
